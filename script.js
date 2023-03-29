@@ -26,7 +26,19 @@ document.querySelector('.check').addEventListener('click', function () {
         document.querySelector('.score').textContent = score;
         document.querySelector('.chances').textContent = chances;
     }
-    else if (userGuess > num) {
+    else if(userGuess !== num){
+        if (chances > 0) {
+            score--;
+            document.querySelector('.message').textContent = userGuess > num ?"📈 Too High": "📉 Too Low";
+            let sc = --chances;
+            document.querySelector('.chances').textContent = sc;
+        }
+        else {
+            document.querySelector('.message').textContent = "You lose";
+        }
+    }
+
+    /* else if (userGuess > num) {
         if (chances > 0) {
             score--;
             document.querySelector('.message').textContent = "📈 Too High";
@@ -47,7 +59,7 @@ document.querySelector('.check').addEventListener('click', function () {
         else {
             document.querySelector('.message').textContent = "You lose";
         }
-    }
+    } */
 });
 
 //for the reset button 
