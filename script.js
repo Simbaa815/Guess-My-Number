@@ -9,9 +9,11 @@ let score = 20;
 document.querySelector('.check').addEventListener('click', function () {
     let userGuess = Number(document.querySelector('.guess').value);
 
+    // Check if the player entered a valid guess 
     if (!userGuess) {
         document.querySelector('.message').textContent = '⛔ No guess';
     }
+    // If the player guessed correctly 
     else if (userGuess === num) {
         document.querySelector('.number').textContent = num;
         document.querySelector('.number').style.width = '30rem';
@@ -26,6 +28,7 @@ document.querySelector('.check').addEventListener('click', function () {
         document.querySelector('.score').textContent = score;
         document.querySelector('.chances').textContent = chances;
     }
+    // If the player guessed incorrectly 
     else if(userGuess !== num){
         if (chances > 0) {
             score--;
@@ -62,7 +65,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } */
 });
 
-//for the reset button 
+// Reset variables and game elements 
 document.querySelector('.again').addEventListener('click', function () {
     chances = 20;
     num = Math.floor(Math.random() * 20) + 1;
